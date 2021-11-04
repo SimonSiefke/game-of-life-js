@@ -4,7 +4,8 @@
   "scripts": {
     "start": "npx mocha -w index.js"
   },
-  "dependencies": {
+  "dedependencies": {
+    "@types/mocha": "9.0.0",
     "mocha": "9.1.3"
   }
 }

@@ -1,6 +1,9 @@
 const assert = require('assert');
 
-it('Hello world', function () {
-  const text = 'WORLD';
-  assert.equal(`Hello ${text.toLocaleLowerCase()}`, 'Hello world');
+describe('Hello world', () => {
+  it('Name is lowercased in the greeting.', () => {
+    const name = 'World';
+    const result = `Hello ${name.toLocaleLowerCase()}`;
+    assert.equal(result, 'Hello world');
+  });
 });
