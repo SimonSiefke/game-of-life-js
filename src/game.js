@@ -72,9 +72,6 @@ export const getNextState = (state) => {
   return state.map((row, i) => {
     return row.map((cell, j) => {
       const neighbors = countNeighbors(state, i, j);
-      if (neighbors < 2) {
-        return 0;
-      }
       if (neighbors === 2) {
         return cell;
       }

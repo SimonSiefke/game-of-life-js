@@ -1,11 +1,18 @@
 import { getNextState } from "./game.js";
 
-const createMatrix = (width, height) => {
+const getRandomValue = () => {
+  if (Math.random() > 0.5) {
+    return 1;
+  }
+  return 0;
+};
+
+const createMatrix = (width, height, fill) => {
   const matrix = [];
   for (let i = 0; i < width; i++) {
     const row = [];
     for (let j = 0; j < height; j++) {
-      row.push(0);
+      row.push(fill());
     }
     matrix.push(row);
   }
@@ -32,13 +39,13 @@ const render = (state) => {
 };
 
 const main = async () => {
-  let state = createMatrix(WIDTH, HEIGHT);
-  state[10][10] = 1;
-  state[11][10] = 1;
-  state[12][10] = 1;
-  state[13][10] = 1;
-  state[14][10] = 1;
-  state[14][9] = 1;
+  let state = createMatrix(WIDTH, HEIGHT, getRandomValue);
+  // state[10][10] = 1;
+  // state[11][10] = 1;
+  // state[12][10] = 1;
+  // state[13][10] = 1;
+  // state[14][10] = 1;
+  // state[14][9] = 1;
   setInterval(() => {
     state = getNextState(state);
     render(state);
