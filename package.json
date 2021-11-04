@@ -1,0 +1,10 @@
+{
+  "name": "tdd-starter",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx mocha -w index.js"
+  },
+  "dependencies": {
+    "mocha": "9.1.3"
+  }
+}
