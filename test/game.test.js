@@ -59,3 +59,59 @@ test("countNeighbors - reproduction", () => {
     )
   ).toBe(3);
 });
+
+test("getNextState - underpopulation", () => {
+  expect(
+    getNextState([
+      [0, 0, 0],
+      [0, 1, 0],
+      [0, 0, 1],
+    ])
+  ).toEqual([
+    [0, 0, 0],
+    [0, 0, 0],
+    [0, 0, 0],
+  ]);
+});
+
+test("getNextState - survival", () => {
+  expect(
+    getNextState([
+      [0, 0, 0],
+      [1, 1, 0],
+      [0, 1, 1],
+    ])
+  ).toEqual([
+    [0, 0, 0],
+    [1, 1, 1],
+    [1, 1, 1],
+  ]);
+});
+
+test("getNextState - overcrowding", () => {
+  expect(
+    getNextState([
+      [1, 1, 1],
+      [1, 1, 1],
+      [1, 1, 1],
+    ])
+  ).toEqual([
+    [1, 0, 1],
+    [0, 0, 0],
+    [1, 0, 1],
+  ]);
+});
+
+test("getNextState - reproduction", () => {
+  expect(
+    getNextState([
+      [0, 0, 0],
+      [1, 0, 0],
+      [0, 1, 1],
+    ])
+  ).toEqual([
+    [0, 0, 0],
+    [0, 1, 0],
+    [0, 1, 0],
+  ]);
+});

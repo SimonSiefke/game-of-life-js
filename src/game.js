@@ -69,6 +69,19 @@ export const countNeighbors = (state, i, j) => {
 };
 
 export const getNextState = (state) => {
-  // TODO
-  return state;
+  return state.map((row, i) => {
+    return row.map((cell, j) => {
+      const neighbors = countNeighbors(state, i, j);
+      if (neighbors < 2) {
+        return 0;
+      }
+      if (neighbors === 2) {
+        return cell;
+      }
+      if (neighbors === 3) {
+        return 1;
+      }
+      return 0;
+    });
+  });
 };
