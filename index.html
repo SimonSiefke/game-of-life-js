@@ -6,6 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
+      :root {
+        --Filled: #643c78;
+        --Empty: #af8ebf;
+      }
+
       #App {
         display: flex;
         flex-direction: column;
@@ -21,10 +26,10 @@
       }
 
       .Cell[data-value="1"] {
-        background: green;
+        background: var(--Filled);
       }
       .Cell[data-value="0"] {
-        background: red;
+        background: var(--Empty);
       }
     </style>
   </head>
